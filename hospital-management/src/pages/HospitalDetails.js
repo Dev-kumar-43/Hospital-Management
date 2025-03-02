@@ -9,7 +9,7 @@ function HospitalDetails() {
   useEffect(() => {
     async function fetchHospital() {
       try {
-        const response = await axios.get(`http://localhost:5000/api/v1/hospitals/details?id=${id}`);
+        const response = await axios.get(`${process.env.BASE_URL}/api/v1/hospitals/details?id=${id}`);
         setHospital(response.data);
       } catch (error) {
         console.error("Error fetching hospital details:", error);

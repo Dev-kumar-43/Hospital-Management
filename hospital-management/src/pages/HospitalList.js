@@ -47,7 +47,7 @@ function HospitalList() {
       </div>
     <div><a href="add-hospital" >Add Hospital</a></div>
       <div style={styles.hospitalGrid}>
-        {/* {hospitals.length > 0 ? (
+        {hospitals.length > 0 ? (
           hospitals?.map((hospital) => (
             <div key={hospital._id} style={styles.card}>
               <img src={hospital.image} alt={hospital.name} style={styles.hospitalImage} />
@@ -66,7 +66,7 @@ function HospitalList() {
           ))
         ) : (
           <p style={styles.noHospitals}>🚫 No hospitals found in {city}.</p>
-        )} */}
+        )}
       </div>
     </div>
   );

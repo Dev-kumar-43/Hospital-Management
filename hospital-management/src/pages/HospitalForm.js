@@ -20,7 +20,7 @@ function HospitalForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${process.env.BASE_URL}api/v1/hospitals/create`, hospital);
+      await axios.post(`${process.env.REACT_APP_BASE_URL}api/v1/hospitals/create`, hospital);
       alert("Hospital added successfully!");
     } catch (error) {
       console.error("Error adding hospital:", error);

@@ -46,7 +46,7 @@ function HospitalList() {
     <div><a href="add-hospital" >Add Hospital</a></div>
       <div style={styles.hospitalGrid}>
         {hospitals.length > 0 ? (
-          hospitals.map((hospital) => (
+          hospitals?.map((hospital) => (
             <div key={hospital._id} style={styles.card}>
               <img src={hospital.image} alt={hospital.name} style={styles.hospitalImage} />
               <div style={styles.cardContent}>
@@ -58,7 +58,7 @@ function HospitalList() {
                 <p style={styles.hospitalRating}>⭐ Rating: <strong>{hospital.rating}</strong></p>
                 <button onClick={() => handleDelete(hospital._id)} style={styles.deleteButton}>
                   🗑 Delete
-                </button>
+                </button> 
               </div>
             </div>
           ))

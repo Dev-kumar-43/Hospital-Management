@@ -10,8 +10,10 @@ function HospitalList() {
   useEffect(() => {
     async function fetchHospitals() {
       try {
-        const response = await axios.get(`${process.env.BASE_URL}/api/v1/hospitals?city=${city}`);
+        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}api/v1/hospitals?city=${city}`);
+        
         setHospitals(response.data);
+        console.log(response.data);
       } catch (error) {
         console.error("Error fetching hospitals:", error);
       }
@@ -22,7 +24,7 @@ function HospitalList() {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this hospital?")) {
       try {
-        await axios.delete(`${process.env.BASE_URL}/api/v1/hospitals/delete?id=${id}`);
+        await axios.delete(`https://hospital-management-flame-seven.vercel.app/api/v1/hospitals/delete?id=${id}`);
         setHospitals(hospitals.filter((h) => h._id !== id));
         alert("✅ Hospital deleted successfully!");
       } catch (error) {
@@ -45,7 +47,7 @@ function HospitalList() {
       </div>
     <div><a href="add-hospital" >Add Hospital</a></div>
       <div style={styles.hospitalGrid}>
-        {hospitals.length > 0 ? (
+        {/* {hospitals.length > 0 ? (
           hospitals?.map((hospital) => (
             <div key={hospital._id} style={styles.card}>
               <img src={hospital.image} alt={hospital.name} style={styles.hospitalImage} />
@@ -64,7 +66,7 @@ function HospitalList() {
           ))
         ) : (
           <p style={styles.noHospitals}>🚫 No hospitals found in {city}.</p>
-        )}
+        )} */}
       </div>
     </div>
   );
